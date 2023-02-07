@@ -41,8 +41,7 @@ function App() {
   const buyProducts = (id) => {
     dispatch(addProduct(id));
   };
-  const handleOperation = () => {
-    setIsLoading(true);
+  const handleOperation = async () => {
     axios
       .post("https://cafe-endpoint.onrender.com/addProduct", {
         title: title,
@@ -51,10 +50,10 @@ function App() {
       })
       .then((response) => {
         alert("Successful order !");
+        setIsLoading(false);
         window.location.reload();
       })
       .catch((err) => console.log(err));
-    setIsLoading(false);
   };
   return (
     <div className="App">
@@ -144,7 +143,10 @@ function App() {
                         backgroundColor: "#a49c8e",
                         border: "0px",
                       }}
-                      onClick={handleOperation}
+                      onClick={() => {
+                        setIsLoading(true);
+                        handleOperation();
+                      }}
                     >
                       Buy now
                     </Button>
