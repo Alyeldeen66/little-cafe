@@ -52,6 +52,7 @@ function App() {
       .then((response) => {
         if (response == "New order added successfully!") {
           alert("Successful order !");
+          window.location.reload();
         }
       })
       .catch((err) => console.log(err));
