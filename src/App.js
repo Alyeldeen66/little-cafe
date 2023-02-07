@@ -50,7 +50,6 @@ function App() {
         quantity: totalQuantity,
       })
       .then((response) => {
-        console.log(response);
         alert("Successful order !");
       })
       .catch((err) => console.log(err));
