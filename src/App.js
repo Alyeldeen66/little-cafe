@@ -42,7 +42,11 @@ function App() {
   };
   const handleOperation = () => {
     axios
-      .post("https://cafe-endpoint.onrender.com/addProduct", {})
+      .post("https://cafe-endpoint.onrender.com/addProduct", {
+        title: title,
+        price: totalPrice,
+        quantity: totalQuantity,
+      })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
   };
