@@ -42,7 +42,7 @@ function App() {
     dispatch(addProduct(id));
   };
   const handleOperation = () => {
-    setIsLoading(false);
+    setIsLoading(true);
     axios
       .post("https://cafe-endpoint.onrender.com/addProduct", {
         title: title,
@@ -127,7 +127,7 @@ function App() {
               {cartProducts ? (
                 <div style={{ textAlign: "center" }}>
                   <h4>Total Price = {totalPrice}</h4>
-                  {isLoading ? (
+                  {isLoading && (
                     <Button
                       style={{
                         backgroundColor: "#a49c8e",
@@ -137,7 +137,8 @@ function App() {
                     >
                       Loading...
                     </Button>
-                  ) : (
+                  )}{" "}
+                  {!isLoading && (
                     <Button
                       style={{
                         backgroundColor: "#a49c8e",
