@@ -53,7 +53,6 @@ function App() {
         console.log(response);
         setIsLoading(true);
         alert("Successful order !");
-        window.location.reload();
       })
       .catch((err) => console.log(err));
   };
