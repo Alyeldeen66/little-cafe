@@ -42,7 +42,7 @@ function App() {
     dispatch(addProduct(id));
   };
   const handleOperation = () => {
-    setIsLoading(false);
+    setIsLoading(true);
     axios
       .post("https://cafe-endpoint.onrender.com/addProduct", {
         title: title,
@@ -51,10 +51,10 @@ function App() {
       })
       .then((response) => {
         console.log(response);
-        setIsLoading(true);
         alert("Successful order !");
       })
       .catch((err) => console.log(err));
+    setIsLoading(false);
   };
   return (
     <div className="App">
