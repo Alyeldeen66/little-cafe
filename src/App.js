@@ -50,12 +50,10 @@ function App() {
         quantity: totalQuantity,
       })
       .then((response) => {
-        if (response == "New order added successfully!") {
-          console.log(response);
-          setIsLoading(true);
-          alert("Successful order !");
-          window.location.reload();
-        }
+        console.log(response);
+        setIsLoading(true);
+        alert("Successful order !");
+        window.location.reload();
       })
       .catch((err) => console.log(err));
   };
