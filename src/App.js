@@ -53,11 +53,11 @@ function App() {
               {cartProducts ? (
                 cartProducts.map((product) => (
                   <div key={product.id} className="shopping-list-item">
-                    <Card style={{ width: "10rem", height: "14rem " }}>
+                    <Card style={{ width: "14rem" }}>
                       <Card.Img
                         variant="top"
                         src={product.img}
-                        style={{ height: "5rem" }}
+                        style={{ height: "7rem" }}
                       />
                       <Card.Body>
                         <Card.Title style={{ textAlign: "center" }}>
