@@ -42,7 +42,8 @@ function App() {
     dispatch(addProduct(id));
   };
   const handleOperation = () => {
-    setIsLoading(true);
+    alert("Hello");
+    setIsLoading(false);
     axios
       .post("https://cafe-endpoint.onrender.com/addProduct", {
         title: title,
@@ -56,7 +57,7 @@ function App() {
         }
       })
       .catch((err) => console.log(err));
-    setIsLoading(false);
+    setIsLoading(true);
   };
   return (
     <div className="App">
@@ -135,7 +136,6 @@ function App() {
                         backgroundColor: "#a49c8e",
                         border: "0px",
                       }}
-                      onClick={handleOperation}
                       disabled
                     >
                       Loading...
