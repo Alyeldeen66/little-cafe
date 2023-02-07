@@ -31,6 +31,7 @@ function App() {
   console.log(totalQuantity);
   const dispatch = useDispatch();
   console.log(cartProducts);
+  const [isLoading, setIsLoading] = useState(false);
   const handleClick = () => {
     setShowCart(true);
   };
@@ -41,14 +42,21 @@ function App() {
     dispatch(addProduct(id));
   };
   const handleOperation = () => {
+    setIsLoading(true);
     axios
       .post("https://cafe-endpoint.onrender.com/addProduct", {
         title: title,
         price: totalPrice,
         quantity: totalQuantity,
       })
-      .then((response) => console.log(response))
+      .then((response) => {
+        if (response == "New order added successfully!") {
+          alert("Successful order !");
+          location.reload();
+        }
+      })
       .catch((err) => console.log(err));
+    setIsLoading(false);
   };
   return (
     <div className="App">
@@ -121,15 +129,28 @@ function App() {
               {cartProducts ? (
                 <div style={{ textAlign: "center" }}>
                   <h4>Total Price = {totalPrice}</h4>
-                  <Button
-                    style={{
-                      backgroundColor: "#a49c8e",
-                      border: "0px",
-                    }}
-                    onClick={handleOperation}
-                  >
-                    Buy now
-                  </Button>
+                  {!isLoading ? (
+                    <Button
+                      style={{
+                        backgroundColor: "#a49c8e",
+                        border: "0px",
+                      }}
+                      onClick={handleOperation}
+                    >
+                      Buy now
+                    </Button>
+                  ) : (
+                    <Button
+                      style={{
+                        backgroundColor: "#a49c8e",
+                        border: "0px",
+                      }}
+                      onClick={handleOperation}
+                      disabled
+                    >
+                      Loading...
+                    </Button>
+                  )}
                 </div>
               ) : (
                 <></>
