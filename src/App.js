@@ -129,17 +129,7 @@ function App() {
               {cartProducts ? (
                 <div style={{ textAlign: "center" }}>
                   <h4>Total Price = {totalPrice}</h4>
-                  {!isLoading ? (
-                    <Button
-                      style={{
-                        backgroundColor: "#a49c8e",
-                        border: "0px",
-                      }}
-                      onClick={handleOperation}
-                    >
-                      Buy now
-                    </Button>
-                  ) : (
+                  {isLoading ? (
                     <Button
                       style={{
                         backgroundColor: "#a49c8e",
@@ -149,6 +139,16 @@ function App() {
                       disabled
                     >
                       Loading...
+                    </Button>
+                  ) : (
+                    <Button
+                      style={{
+                        backgroundColor: "#a49c8e",
+                        border: "0px",
+                      }}
+                      onClick={handleOperation}
+                    >
+                      Buy now
                     </Button>
                   )}
                 </div>
