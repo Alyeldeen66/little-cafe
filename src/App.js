@@ -8,6 +8,7 @@ import closeCart from "./Assets/close.png";
 import Alert from "react-bootstrap/Alert";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import {
   addProduct,
   decrement,
@@ -22,7 +23,12 @@ function App() {
   const [showAlert, setShowAlert] = useState(false);
   const products = useSelector((state) => state.products.products);
   const cartProducts = useSelector((state) => state.products.cartProducts);
+  const title = cartProducts.map((product) => product.title);
+  console.log(title);
   const totalPrice = useSelector((state) => state.products.totalPrice);
+  let totalQuantity = 0;
+  cartProducts.map((product) => (totalQuantity += product.quantity));
+  console.log(totalQuantity);
   const dispatch = useDispatch();
   console.log(cartProducts);
   const handleClick = () => {
@@ -33,6 +39,12 @@ function App() {
   };
   const buyProducts = (id) => {
     dispatch(addProduct(id));
+  };
+  const handleOperation = () => {
+    axios
+      .post("https://cafe-endpoint.onrender.com/addProduct", {})
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
   };
   return (
     <div className="App">
@@ -110,6 +122,7 @@ function App() {
                       backgroundColor: "#a49c8e",
                       border: "0px",
                     }}
+                    onClick={handleOperation}
                   >
                     Buy now
                   </Button>
