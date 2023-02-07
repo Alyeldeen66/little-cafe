@@ -42,7 +42,7 @@ function App() {
     dispatch(addProduct(id));
   };
   const handleOperation = () => {
-    setIsLoading(true);
+    setIsLoading(false);
     axios
       .post("https://cafe-endpoint.onrender.com/addProduct", {
         title: title,
