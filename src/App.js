@@ -51,6 +51,7 @@ function App() {
       })
       .then((response) => {
         alert("Successful order !");
+        window.location.reload();
       })
       .catch((err) => console.log(err));
     setIsLoading(false);
