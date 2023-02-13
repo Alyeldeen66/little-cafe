@@ -56,7 +56,7 @@ const initialState = {
       title: "Nescafe Gold",
       count: 0,
       quantity: 0,
-      price: 20,
+      price: 30,
     },
     {
       id: 8,
@@ -64,7 +64,7 @@ const initialState = {
       title: "Nespresso Capsules",
       count: 0,
       quantity: 0,
-      price: 20,
+      price: 50,
     },
     {
       id: 9,
@@ -72,7 +72,7 @@ const initialState = {
       title: "Bottle Of Water",
       count: 0,
       quantity: 0,
-      price: 20,
+      price: 10,
     },
   ],
   cartProducts: [],
